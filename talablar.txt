@@ -1,0 +1,129 @@
+***************************** Kutubhona *****************************
+Kutubxonani boshqaradigan dasturiy ta'minot tuzing.
+Ta'rif: Kutubxonada:
+1. Studentlar login bo'lib kirishi va o'zlariga kerakli kitoblarni ola bilishi kerak, Shuningdek studentlar sistemaga kirganidan 
+  keyin o'zlari olgan kitoblar ro'yhati, 
+  topshirishi kerak bo'lgan kitoblar ro'yhatini ko'rsatish kerak.
+2. Yangi studentlar uchun ro'yhatdan o'tish imkoni bo'lishi kerak. Registratsiyadan faqat studentlar o'tishi mumkin.
+3. Ishgal qilgan studentlarni sistemada blocklash imkoni bo'lsin.
+4. Studentlar ro'yhatdan o'tmasdan oldin kitob qidirish imkoni ham bo'lsin.
+5. Kutubxona hodimlarida kitob qidirish, yangi kitob qo'shish, bor kitoblarni tahrirlash kabi imkoniyatlar bo'lishi kerak.
+6. Yangi kelgan hodimlarni sistemaga qo'shish imkoni bo'lsin.
+7. Hodimlarni sistemadagi barcha studentlar, kitoblar kabi ma'lumotlarni ko'ra bilishi kerak.
+8. Statistika bo'limida: qaysi student qancha kitob olgan, qaysi kitoblarni olgan, 
+  hozirda studentlar qo'lidagi kitoblar,berilgan kitobni kimlar olgan va shu kabi ma'lumotlarni ko'rish imkoni bo'lsin.
+9. Password lar MD5 algoritmga asoslanib shifirlanib saqlanishi kerak.
+10. Student sistemaga kirganidan keyin unga darhol qaytarishi kerak bo'lgan kitoblari ro'yhati ko'rsatilsin.
+11. 
+Dasturda quyidagi talablar bajarilishi kerak.
+
+
+Book
+  id, title, author, category, publishDate, availableDay, visible, createdDate
+Category
+  id, name (unique), createdDate, visible
+TakenBook
+  id, studentId, bookId, createdDate, Status(TOOK,RETURNED),note
+Profile
+  id, name, surname, login, password, phone, status, role, createdDate
+Profile Roles
+  STUDENT,STAFF,ADMIN  
+  
+  
+*** Main *** 
+1. BookList  -> id, title, author, category
+2. Search -> 
+    Enter query:  (search by title or author or category) 
+    id, title, author, category    
+3. By category:  
+      (print all category for choose) №,id,name
+      Enter category:  
+3. Login
+  Enter Login:
+  Enter Password:
+4. Registration
+  Enter Name:
+  Enter Surname:
+  Enter Phone:
+  Enter Login:
+  Enter Password:
+0. Exit
+
+
+-------------------- Student Menu
+*** Student Menu ***
+1. Book list: 
+    id, title, author, category, createdDate
+2. Search: 
+    Enter name: 
+    id, title, author, category  
+3. Take book:
+    id, title, author, category, takenDate, returnDate
+4. Return book:
+    Enter Id:
+5. Books on hand:
+    id, title, author, category, takenDate, deadlineDate
+6. Take book history: (print taken book list:)
+    id, title, author, category, takenDate, returnDate
+
+
+--------------------------------- staff and admin
+*** Menu ***
+1. Book
+2. Category  (only for admin)
+3. Student
+4. Profile (only for admin)
+
+
+
+*** Book ***
+1. Book list  -> id, title, author, category
+2. Search -> 
+    Enter name: 
+    id, title, author, category  
+3. Add book -> 
+    Enter title: 
+    Enter author:
+    Enter category:
+    Enter book publishDate: 
+4. Remove book:
+    Enter id:
+5. Books on hand:
+    id, title, author, category, takenDate, deadlineDate, student name, student surname, student phone
+6. Book history:
+    Enter book id: 
+    takenDate, returnDate, student name, student surname, student phone, note
+7. Best books: (eng ko'p olingan 10 kitob, taken count desc)
+       id, title, author, category, taken count  
+
+
+*** Category *** 
+1. Category list:
+    id, name, surname, login, phone, status, createdDate 
+2. Delete category:
+    Enter id;    
+    
+
+*** Student ***
+1. Student list:
+    id, name, surname, login, phone, status, createdDate 
+2. Search student
+    Enter query: (id,name,surname,login,phone)
+    id, name, surname, login, phone, status, createdDate 
+3. Block student:
+    Enter id;
+4. Activate student:
+    Enter id:
+1. Student by book:  
+    id, name, surname, login, phone, status,  takenBookCount, BookOnHand 
+
+
+
+*** Profile *** (only for admin)
+1. Profile list:
+    id, name, surname, login, phone, status, role, createdDate 
+2. Search profile
+    Enter query: (id,name,surname,login,phone)
+    id, name, surname, login, phone, status, createdDate 
+3. Change profile status:
+    Enter id;

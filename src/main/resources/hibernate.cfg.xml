@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.username">userjon</property>
+        <property name="hibernate.connection.password">12345</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/oop3</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <!-- MAPPINGS -->
+        <mapping class="org.example.entity.Book"/>
+        <mapping class="org.example.entity.Category"/>
+        <mapping class="org.example.entity.Profile"/>
+        <mapping class="org.example.entity.TakenBook"/>
+    </session-factory>
+</hibernate-configuration>
